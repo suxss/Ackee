@@ -593,8 +593,8 @@
                 }
                 ,
                 i.setRequestHeader("Content-Type", "application/json;charset=UTF-8"),
-                i.setRequestHeader("sec-fetch-site", "cross-site")
                 i.withCredentials = n.ignoreOwnVisits,
+                i.setRequestHeader("sec-fetch-site", "cross-site"),
                 i.send(JSON.stringify(t))
             }
               , g = function() {
