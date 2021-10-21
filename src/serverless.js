@@ -29,9 +29,6 @@ const origin = (() => {
 
 exports.handler = apolloServer.createHandler({
 	cors: {
-		origin,
-		Access-Control-Allow-Origin: *,
-		Access-Control-Allow-Credentials: true,
 		credentials: true,
 		methods: 'GET,POST,PATCH,OPTIONS',
 		allowedHeaders: 'Content-Type, Authorization, Time-Zone',
