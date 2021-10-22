@@ -916,5 +916,224 @@ const J_ = Im`
 	}
 
 	${mw}
-`; const $k = e => u.createElement("div", { className: "card card--wide" }, u.createElement("div", { className: "card__inner" }, u.createElement(Ng, { type: "h2", size: "medium" }, e.headline), u.createElement(Tg, { size: 1.6 }), e.children)); $k.propTypes = { headline: kg.string.isRequired, children: kg.oneOfType([kg.arrayOf(kg.node), kg.node]).isRequired }; const Uk = e => u.createElement(e.type, { onClick: e.onClick, href: e.href, target: e.target, className: Cg({ linkItem: !0, "linkItem--disabled": !0 === e.disabled, link: !0 }) }, u.createElement("span", {}, e.children), null != e.text && u.createElement("span", {}, e.text)); Uk.propTypes = { type: kg.oneOf(["p", "a", "button"]).isRequired, href: kg.string, target: kg.string, onClick: kg.func, disabled: kg.bool, text: kg.string, children: kg.node.isRequired }; const Bk = () => u.createElement("hr", { className: "line" }), Wk = e => u.createElement(Dg, { status: "warning" }, `Loading ${e.label}...`), Kk = e => { const t = (() => { const [e, { loading: t, error: n }] = Km(zk); return { mutate: e, loading: t, error: n } })(), n = Vb(), r = Sk(), i = Lb(Qk, (e => e?.permanentTokens), ((e = []) => e), { fetchPolicy: "cache-first", nextFetchPolicy: "cache-first" }), a = (e, t, n, r) => [...e.map((e => [u.createElement(Uk, { type: "button", text: e.id, onClick: () => t(e) }, e.title), u.createElement(Bk)])).flat(), u.createElement(Uk, { type: "button", onClick: n }, r)], o = u.createElement(Wk, { label: "domains" }), s = u.createElement(Wk, { label: "events" }), l = u.createElement(Wk, { label: "permanent tokens" }), c = a(n.value, (t => e.addModal(iE, t)), (() => e.addModal(rE)), "New domain"), f = a(r.value, (t => e.addModal(oE, t)), (() => e.addModal(aE)), "New event"), d = a(i.value, (t => e.addModal(lE, t)), (() => e.addModal(sE)), "New permanent token"); return u.createElement(u.Fragment, {}, u.createElement($k, { headline: "Account" }, u.createElement(Uk, { type: "p", disabled: !0, text: ev }, "Version"), u.createElement(Bk), u.createElement(Uk, { type: "button", onClick: async () => { await t.mutate({ variables: { id: e.token } }), e.reset() } }, "Sign Out")), u.createElement($k, { headline: "Domains" }, ...!0 === n.status.isInitializing ? [o] : c), u.createElement($k, { headline: "Events" }, ...!0 === r.status.isInitializing ? [s] : f), u.createElement($k, { headline: "Permanent Tokens" }, ...!0 === i.status.isInitializing ? [l] : d), u.createElement($k, { headline: "Donate" }, u.createElement(Uk, { type: "a", href: "https://github.com/sponsors/electerious", target: "_blank", rel: "noopener" }, "Become a GitHub sponsor"), u.createElement(Bk), u.createElement(Uk, { type: "a", href: "https://www.buymeacoffee.com/electerious", target: "_blank", rel: "noopener" }, "Buy me a coffee"), u.createElement(Bk), u.createElement(Uk, { type: "a", href: "https://paypal.me/electerious", target: "_blank", rel: "noopener" }, "Donate via PayPal")), u.createElement($k, { headline: "Help" }, u.createElement(Uk, { type: "a", href: "https://ackee.electerious.com", target: "_blank", rel: "noopener" }, "Website and documentation"), u.createElement(Bk), u.createElement(Uk, { type: "a", href: tv, target: "_blank", rel: "noopener" }, "Ackee on GitHub"), u.createElement(Bk), u.createElement(Uk, { type: "a", href: "https://github.com/electerious/ackee-tracker", target: "_blank", rel: "noopener" }, "Add Ackee to your sites"))) }; Kk.propTypes = { reset: kg.func.isRequired, token: kg.string.isRequired, addModal: kg.func.isRequired }; const Hk = { [wv]: G_, [_v]: gk, [kv]: bk, [Sv]: Ek, [xv]: wk, [Ov]: _k, [Tv]: Fk, [Cv]: Mk, [Nv]: Lk, [Rv]: qk, [Dv]: jk, [Iv]: Vk, [Av]: Kk }, Yk = e => { const t = jg(e.route), n = Vb(); Mb("o", (() => e.setRoute("/"))), Mb("v", (() => e.setRoute("/insights/views"))), Mb("p", (() => e.setRoute("/insights/pages"))), Mb("r", (() => e.setRoute("/insights/referrers"))), Mb("d", (() => e.setRoute("/insights/durations"))), Mb("e", (() => e.setRoute("/insights/events"))), Mb("s", (() => e.setRoute("/settings"))), Mb("0,1,2,3,4,5,6,7,8,9", ((t, { key: r }) => ((e, t, n) => { const r = e[n]; null != r && t(`/domains/${r.id}`) })(n.value, e.setRoute, r)), [n.value]); const r = n.value.length > 0, i = n.value.map(((t, n) => Zb(t.title, `/domains/${t.id}`, e.route, e.setRoute, ((e, t) => e < t ? e : void 0)(n, 10)))), a = [Zb("Views", "/insights/views", e.route, e.setRoute, "v"), Zb("Pages", "/insights/pages", e.route, e.setRoute, "p"), Zb("Referrers", "/insights/referrers", e.route, e.setRoute, "r"), Zb("Durations", "/insights/durations", e.route, e.setRoute, "d"), eE(), Zb("Events", "/insights/events", e.route, e.setRoute, "e"), eE(), Zb("Systems", "/insights/systems", e.route, e.setRoute), Zb("Devices", "/insights/devices", e.route, e.setRoute), Zb("Browsers", "/insights/browsers", e.route, e.setRoute), Zb("Sizes", "/insights/sizes", e.route, e.setRoute), Zb("Languages", "/insights/languages", e.route, e.setRoute)], o = [Jb("Overview", "/", e.route, e.setRoute), !0 === r ? Xb((e => null == e ? "Domains" : e.label), i) : void 0, Xb((e => null == e ? "Insights" : e.label), a), Jb("Settings", "/settings", e.route, e.setRoute)].filter(Boolean); return u.createElement("div", {}, u.createElement(Sw, { modals: e.modals, removeModal: e.removeModal }), u.createElement(Gb, { loading: e.loading, items: o }), u.createElement("main", { className: "content" }, u.createElement(Hk[t.key], { reset: e.reset, route: e.route, setRoute: e.setRoute, token: e.token, addModal: e.addModal, filters: e.filters }))) }, Gk = e => { const t = e.useErrors(), n = ((e, t, n) => !1 != (null != e) && (1 != t.filter(Xy).length > 0 || (n(), !1)))(e.token, t, e.reset); if (!0 === (!1 === n)) return u.createElement(qg, { setToken: e.setToken }); return !0 === t.length > 0 ? u.createElement(Ig, { errors: t, reset: e.reset }) : u.createElement(u.Fragment, {}, u.createElement(fb, { filters: e.filters, setSortingFilter: e.setSortingFilter, setRangeFilter: e.setRangeFilter, setIntervalFilter: e.setIntervalFilter, setViewsTypeFilter: e.setViewsTypeFilter, setReferrersTypeFilter: e.setReferrersTypeFilter, setDevicesTypeFilter: e.setDevicesTypeFilter, setBrowsersTypeFilter: e.setBrowsersTypeFilter, setSizesTypeFilter: e.setSizesTypeFilter, setSystemsTypeFilter: e.setSystemsTypeFilter, route: e.route }), u.createElement(Yk, e)) }, Jk = class extends u.Component { constructor(e) { super(e), this.state = { error: void 0 } } static getDerivedStateFromError(e) { return { error: e } } render() { return !0 === (null != this.state.error) ? u.createElement(Ig, { errors: [this.state.error], reset: this.props.reset }) : this.props.children } }; Jk.propTypes = { reset: kg.func.isRequired }, !0 === window.env.isDemoMode && console.warn("Ackee runs in demo mode"); const { statusLink: Xk, useLoading: Zk, useErrors: eS } = (() => { const { link: e, useApolloNetworkStatusReducer: t } = Jm.createNetworkStatusNotifier(); return { statusLink: e, useLoading: () => t(Xm, 0) > 0, useErrors: () => t(Zm, []) } })(), tS = (nS = [Xk, (rS = (e, { headers: t }) => ({ headers: { ...t, Authorization: `Bearer ${av()}` } }), new np((function (e, t) { var n = Su(e, []); return new sd((function (r) { var i, a = !1; return Promise.resolve(n).then((function (t) { return rS(t, e.getContext()) })).then(e.setContext).then((function () { a || (i = t(e).subscribe({ next: r.next.bind(r), error: r.error.bind(r), complete: r.complete.bind(r) })) })).catch(r.error.bind(r)), function () { a = !0, i && i.unsubscribe() } })) }))), new fv({ uri: "/api", headers: { "Time-Zone": dv } })], new Sm({ link: ip(nS), cache: new am({}) })); var nS, rS; Eu.render(u.createElement((() => { const [e, t] = u.useState(Date.now()), n = Zk(), r = Lv(), i = (() => { const [e, t] = u.useReducer(lv, av()), n = u.useCallback((e => t({ type: rv, token: e })), [t]); return { token: e, setToken: n, resetToken: u.useCallback((() => t({ type: iv })), [t]) } })(), a = (() => { const [e, t] = u.useReducer(uy, ly), n = u.useCallback(((e, n) => t({ type: ay, modalId: iy(), payload: { type: e, props: n } })), [t]); return { modals: e, addModal: n, removeModal: u.useCallback((e => t({ type: oy, modalId: e })), [t]), resetModals: u.useCallback((() => t({ type: sy })), [t]) } })(), o = (() => { const [e, t] = u.useReducer(Gy, Ky()); return { filters: e, setSortingFilter: u.useCallback((e => t({ type: Ly, payload: e })), [t]), setRangeFilter: u.useCallback((e => t({ type: qy, payload: e })), [t]), setIntervalFilter: u.useCallback((e => t({ type: jy, payload: e })), [t]), setViewsTypeFilter: u.useCallback((e => t({ type: Vy, payload: e })), [t]), setReferrersTypeFilter: u.useCallback((e => t({ type: zy, payload: e })), [t]), setDevicesTypeFilter: u.useCallback((e => t({ type: Qy, payload: e })), [t]), setBrowsersTypeFilter: u.useCallback((e => t({ type: $y, payload: e })), [t]), setSizesTypeFilter: u.useCallback((e => t({ type: Uy, payload: e })), [t]), setSystemsTypeFilter: u.useCallback((e => t({ type: By, payload: e })), [t]), resetFilters: u.useCallback((() => t({ type: Wy })), [t]) } })(), s = u.useCallback((() => { i.resetToken(), a.resetModals(), o.resetFilters(), tS.clearStore(), t(Date.now()) }), [i.resetToken, a.resetModals, o.resetFilters, tS.resetStore, t]); var l; return u.useEffect((() => { if (0 != (!0 === navigator.platform.includes("Win"))) return document.body.classList.add("customScrollbar"), () => document.body.classList.remove("customScrollbar") }), []), l = r.route, u.useEffect((() => { document.scrollingElement.scrollTop = 0 }), [l]), u.createElement(Rd, { client: tS }, u.createElement(Jk, { reset: s }, u.createElement(Gk, { key: e, reset: s, useErrors: eS, loading: n, ...status, ...r, ...i, ...a, ...o }))) })), document.querySelector("#main"))
-}();
+`; const $k = e => u.createElement("div", {className: "card card--wide"}, u.createElement("div", {className: "card__inner"}, u.createElement(Ng, {
+    type: "h2",
+    size: "medium"
+}, e.headline), u.createElement(Tg, {size: 1.6}), e.children));
+$k.propTypes = {headline: kg.string.isRequired, children: kg.oneOfType([kg.arrayOf(kg.node), kg.node]).isRequired};
+const Uk = e => u.createElement(e.type, {
+    onClick: e.onClick,
+    href: e.href,
+    target: e.target,
+    className: Cg({linkItem: !0, "linkItem--disabled": !0 === e.disabled, link: !0})
+}, u.createElement("span", {}, e.children), null != e.text && u.createElement("span", {}, e.text));
+Uk.propTypes = {
+    type: kg.oneOf(["p", "a", "button"]).isRequired,
+    href: kg.string,
+    target: kg.string,
+    onClick: kg.func,
+    disabled: kg.bool,
+    text: kg.string,
+    children: kg.node.isRequired
+};
+const Bk = () => u.createElement("hr", {className: "line"}),
+    Wk = e => u.createElement(Dg, {status: "warning"}, `加载 ${e.label}...`), Kk = e => {
+        const t = (() => {
+                const [e, {loading: t, error: n}] = Km(zk);
+                return {mutate: e, loading: t, error: n}
+            })(), n = Vb(), r = Sk(), i = Lb(Qk, (e => e?.permanentTokens), ((e = []) => e), {
+                fetchPolicy: "cache-first",
+                nextFetchPolicy: "cache-first"
+            }), a = (e, t, n, r) => [...e.map((e => [u.createElement(Uk, {
+                type: "button",
+                text: e.id,
+                onClick: () => t(e)
+            }, e.title), u.createElement(Bk)])).flat(), u.createElement(Uk, {type: "button", onClick: n}, r)],
+            o = u.createElement(Wk, {label: "网站"}), s = u.createElement(Wk, {label: "事件"}),
+            l = u.createElement(Wk, {label: "永久令牌"}),
+            c = a(n.value, (t => e.addModal(iE, t)), (() => e.addModal(rE)), "新网站"),
+            f = a(r.value, (t => e.addModal(oE, t)), (() => e.addModal(aE)), "新事件"),
+            d = a(i.value, (t => e.addModal(lE, t)), (() => e.addModal(sE)), "新永久令牌");
+        return u.createElement(u.Fragment, {}, u.createElement($k, {headline: "Account"}, u.createElement(Uk, {
+            type: "p",
+            disabled: !0,
+            text: ev
+        }, "版本"), u.createElement(Bk), u.createElement(Uk, {
+            type: "button", onClick: async () => {
+                await t.mutate({variables: {id: e.token}}), e.reset()
+            }
+        }, "注销")), u.createElement($k, {headline: "网站"}, ...!0 === n.status.isInitializing ? [o] : c), u.createElement($k, {headline: "事件"}, ...!0 === r.status.isInitializing ? [s] : f), u.createElement($k, {headline: "永久令牌"}, ...!0 === i.status.isInitializing ? [l] : d), u.createElement($k, {headline: "捐赠"}, u.createElement(Uk, {
+            type: "a",
+            href: "https://github.com/sponsors/electerious",
+            target: "_blank",
+            rel: "noopener"
+        }, "Become a GitHub sponsor"), u.createElement(Bk), u.createElement(Uk, {
+            type: "a",
+            href: "https://www.buymeacoffee.com/electerious",
+            target: "_blank",
+            rel: "noopener"
+        }, "Buy me a coffee"), u.createElement(Bk), u.createElement(Uk, {
+            type: "a",
+            href: "https://paypal.me/electerious",
+            target: "_blank",
+            rel: "noopener"
+        }, "Donate via PayPal")), u.createElement($k, {headline: "Help"}, u.createElement(Uk, {
+            type: "a",
+            href: "https://ackee.electerious.com",
+            target: "_blank",
+            rel: "noopener"
+        }, "Website and documentation"), u.createElement(Bk), u.createElement(Uk, {
+            type: "a",
+            href: tv,
+            target: "_blank",
+            rel: "noopener"
+        }, "Ackee on GitHub"), u.createElement(Bk), u.createElement(Uk, {
+            type: "a",
+            href: "https://github.com/electerious/ackee-tracker",
+            target: "_blank",
+            rel: "noopener"
+        }, "Add Ackee to your sites")))
+    };
+Kk.propTypes = {reset: kg.func.isRequired, token: kg.string.isRequired, addModal: kg.func.isRequired};
+const Hk = {
+    [wv]: G_,
+    [_v]: gk,
+    [kv]: bk,
+    [Sv]: Ek,
+    [xv]: wk,
+    [Ov]: _k,
+    [Tv]: Fk,
+    [Cv]: Mk,
+    [Nv]: Lk,
+    [Rv]: qk,
+    [Dv]: jk,
+    [Iv]: Vk,
+    [Av]: Kk
+}, Yk = e => {
+    const t = jg(e.route), n = Vb();
+    Mb("o", (() => e.setRoute("/"))), Mb("v", (() => e.setRoute("/insights/views"))), Mb("p", (() => e.setRoute("/insights/pages"))), Mb("r", (() => e.setRoute("/insights/referrers"))), Mb("d", (() => e.setRoute("/insights/durations"))), Mb("e", (() => e.setRoute("/insights/events"))), Mb("s", (() => e.setRoute("/settings"))), Mb("0,1,2,3,4,5,6,7,8,9", ((t, {key: r}) => ((e, t, n) => {
+        const r = e[n];
+        null != r && t(`/domains/${r.id}`)
+    })(n.value, e.setRoute, r)), [n.value]);
+    const r = n.value.length > 0,
+        i = n.value.map(((t, n) => Zb(t.title, `/domains/${t.id}`, e.route, e.setRoute, ((e, t) => e < t ? e : void 0)(n, 10)))),
+        a = [Zb("访问量", "/insights/views", e.route, e.setRoute, "v"), Zb("访问页面", "/insights/pages", e.route, e.setRoute, "p"), Zb("来源", "/insights/referrers", e.route, e.setRoute, "r"), Zb("浏览时间", "/insights/durations", e.route, e.setRoute, "d"), eE(), Zb("事件", "/insights/events", e.route, e.setRoute, "e"), eE(), Zb("系统", "/insights/systems", e.route, e.setRoute), Zb("装置", "/insights/devices", e.route, e.setRoute), Zb("浏览器", "/insights/browsers", e.route, e.setRoute), Zb("屏幕大小", "/insights/sizes", e.route, e.setRoute), Zb("语言", "/insights/languages", e.route, e.setRoute)],
+        o = [Jb("总览", "/", e.route, e.setRoute), !0 === r ? Xb((e => null == e ? "网站" : e.label), i) : void 0, Xb((e => null == e ? "分类" : e.label), a), Jb("设置", "/settings", e.route, e.setRoute)].filter(Boolean);
+    return u.createElement("div", {}, u.createElement(Sw, {
+        modals: e.modals,
+        removeModal: e.removeModal
+    }), u.createElement(Gb, {
+        loading: e.loading,
+        items: o
+    }), u.createElement("main", {className: "content"}, u.createElement(Hk[t.key], {
+        reset: e.reset,
+        route: e.route,
+        setRoute: e.setRoute,
+        token: e.token,
+        addModal: e.addModal,
+        filters: e.filters
+    })))
+}, Gk = e => {
+    const t = e.useErrors(),
+        n = ((e, t, n) => !1 != (null != e) && (1 != t.filter(Xy).length > 0 || (n(), !1)))(e.token, t, e.reset);
+    if (!0 === (!1 === n)) return u.createElement(qg, {setToken: e.setToken});
+    return !0 === t.length > 0 ? u.createElement(Ig, {
+        errors: t,
+        reset: e.reset
+    }) : u.createElement(u.Fragment, {}, u.createElement(fb, {
+        filters: e.filters,
+        setSortingFilter: e.setSortingFilter,
+        setRangeFilter: e.setRangeFilter,
+        setIntervalFilter: e.setIntervalFilter,
+        setViewsTypeFilter: e.setViewsTypeFilter,
+        setReferrersTypeFilter: e.setReferrersTypeFilter,
+        setDevicesTypeFilter: e.setDevicesTypeFilter,
+        setBrowsersTypeFilter: e.setBrowsersTypeFilter,
+        setSizesTypeFilter: e.setSizesTypeFilter,
+        setSystemsTypeFilter: e.setSystemsTypeFilter,
+        route: e.route
+    }), u.createElement(Yk, e))
+}, Jk = class extends u.Component {
+    constructor(e) {
+        super(e), this.state = {error: void 0}
+    }
+
+    static getDerivedStateFromError(e) {
+        return {error: e}
+    }
+
+    render() {
+        return !0 === (null != this.state.error) ? u.createElement(Ig, {
+            errors: [this.state.error],
+            reset: this.props.reset
+        }) : this.props.children
+    }
+};
+Jk.propTypes = {reset: kg.func.isRequired}, !0 === window.env.isDemoMode && console.warn("Ackee runs in demo mode");
+const {statusLink: Xk, useLoading: Zk, useErrors: eS} = (() => {
+    const {link: e, useApolloNetworkStatusReducer: t} = Jm.createNetworkStatusNotifier();
+    return {statusLink: e, useLoading: () => t(Xm, 0) > 0, useErrors: () => t(Zm, [])}
+})(), tS = (nS = [Xk, (rS = (e, {headers: t}) => ({
+    headers: {
+        ...t,
+        Authorization: `Bearer ${av()}`
+    }
+}), new np((function (e, t) {
+    var n = Su(e, []);
+    return new sd((function (r) {
+        var i, a = !1;
+        return Promise.resolve(n).then((function (t) {
+            return rS(t, e.getContext())
+        })).then(e.setContext).then((function () {
+            a || (i = t(e).subscribe({next: r.next.bind(r), error: r.error.bind(r), complete: r.complete.bind(r)}))
+        })).catch(r.error.bind(r)), function () {
+            a = !0, i && i.unsubscribe()
+        }
+    }))
+}))), new fv({uri: "/api", headers: {"Time-Zone": dv}})], new Sm({link: ip(nS), cache: new am({})}));
+var nS, rS;
+Eu.render(u.createElement((() => {
+    const [e, t] = u.useState(Date.now()), n = Zk(), r = Lv(), i = (() => {
+        const [e, t] = u.useReducer(lv, av()), n = u.useCallback((e => t({type: rv, token: e})), [t]);
+        return {token: e, setToken: n, resetToken: u.useCallback((() => t({type: iv})), [t])}
+    })(), a = (() => {
+        const [e, t] = u.useReducer(uy, ly),
+            n = u.useCallback(((e, n) => t({type: ay, modalId: iy(), payload: {type: e, props: n}})), [t]);
+        return {
+            modals: e,
+            addModal: n,
+            removeModal: u.useCallback((e => t({type: oy, modalId: e})), [t]),
+            resetModals: u.useCallback((() => t({type: sy})), [t])
+        }
+    })(), o = (() => {
+        const [e, t] = u.useReducer(Gy, Ky());
+        return {
+            filters: e,
+            setSortingFilter: u.useCallback((e => t({type: Ly, payload: e})), [t]),
+            setRangeFilter: u.useCallback((e => t({type: qy, payload: e})), [t]),
+            setIntervalFilter: u.useCallback((e => t({type: jy, payload: e})), [t]),
+            setViewsTypeFilter: u.useCallback((e => t({type: Vy, payload: e})), [t]),
+            setReferrersTypeFilter: u.useCallback((e => t({type: zy, payload: e})), [t]),
+            setDevicesTypeFilter: u.useCallback((e => t({type: Qy, payload: e})), [t]),
+            setBrowsersTypeFilter: u.useCallback((e => t({type: $y, payload: e})), [t]),
+            setSizesTypeFilter: u.useCallback((e => t({type: Uy, payload: e})), [t]),
+            setSystemsTypeFilter: u.useCallback((e => t({type: By, payload: e})), [t]),
+            resetFilters: u.useCallback((() => t({type: Wy})), [t])
+        }
+    })(), s = u.useCallback((() => {
+        i.resetToken(), a.resetModals(), o.resetFilters(), tS.clearStore(), t(Date.now())
+    }), [i.resetToken, a.resetModals, o.resetFilters, tS.resetStore, t]);
+    var l;
+    return u.useEffect((() => {
+        if (0 != (!0 === navigator.platform.includes("Win"))) return document.body.classList.add("customScrollbar"), () => document.body.classList.remove("customScrollbar")
+    }), []), l = r.route, u.useEffect((() => {
+        document.scrollingElement.scrollTop = 0
+    }), [l]), u.createElement(Rd, {client: tS}, u.createElement(Jk, {reset: s}, u.createElement(Gk, {
+        key: e,
+        reset: s,
+        useErrors: eS,
+        loading: n, ...status, ...r, ...i, ...a, ...o
+    })))
+})), document.querySelector("#main"))
+}
+();
