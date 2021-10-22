@@ -32,6 +32,6 @@ exports.handler = apolloServer.createHandler({
 		credentials: true,
 		methods: 'GET,POST,PATCH,OPTIONS',
 		allowedHeaders: 'Content-Type, Authorization, Time-Zone',
-		accesscontrolallowOrigin: "https://blog.suxss.tk"
+		accesscontrolalloworigin: "https://blog.suxss.tk"
 	},
 })
